@@ -1,36 +1,125 @@
 # ==============================================================================
+# Aliases
+#
+# create alias
+# alias name=value
+# alias name='command'
+# alias name='command arg1 arg2'
+# alias name='/path/to/script'
+# alias name='/path/to/script.sh arg1'
+# ==============================================================================
+
+# if user is not root, pass all commands via sudo
+if [ $UID -ne 0 ]; then
+    alias reboot='sudo reboot'
+    alias update='sudo apt-get update && sudo apt-get upgrade'
+    alias nautilus='sudo nautilus'
+    alias root='sudo -i'
+    alias su='sudo -i'
+    alias apt='sudo apt'
+fi
+
+# Colorize the ls output
+alias ls='ls -AlhF --color=auto'
+alias sl="ls"
+
+# Use a long listing format
+alias ll='ls -laF'
+
+# Show hidden files
+alias l.='ls -d .* --color=auto'
+
+# get rid of command not found
+alias cd..='cd ..'
+
+# a quick way to get out of current directory
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../../'
+alias .2='cd ../../'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+
+# Colorize the grep command output for ease of use (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Start calculator with math support
+alias bc='bc -l'
+
+# Command short cuts to save time
+alias h='history'
+alias j='jobs -l'
+alias n='nano'
+alias p='pwd'
+
+# Create a new set of commands
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# Control output of networking tool called ping
+alias pingy='ping ya.ru'
+
+# confirmation
+# alias mv='mv -i'
+# alias cp='cp -i'
+# alias ln='ln -i'
+
+# clear screen
+alias c='printf "\033c"; clear'
+alias cls='printf "\033c"; clear;'
+
+# test mic
+alias testmic='arecord -f cd -d 10 test-mic.wav; aplay test-mic.wav'
+
+# Git commands
+alias gr='git reset --hard; git clean -df'
+alias grm='git reset --hard origin/master; git clean -df'
+alias gru='git reset --hard origin/master; git clean -df; git fetch; git pull origin master'
+alias 'git co'='git checkout'
+alias 'git i'='git init'
+alias 'git s'='git status'
+alias 'git l'='git log'
+alias 'git a'='git add'
+
+# Other aliases
+alias :q='exit'
+alias cx="chmod +x"
+alias br='browser-sync start --server --files "php/*.php,css/*.css,js/*.js,html/*.html,*.*"'
+alias sa='sass .:. --style compressed --no-source-map'
+alias sam='sass .:. --style compressed'
+
+# Switch node XX --> node 14
+# source /usr/share/nvm/init-nvm.sh && nvm use 14.20.1
+# Switch python 3 --> python 2
+# export PATH=~/bin:$PATH
+
+# Connection aliases
+# alias dsf=Connect_Soft
+# alias drs=Connect_Other
+# alias cnf='ssh -AYv <login>@<server> -p <port>'
+
+# ==============================================================================
 # Functions
 # ==============================================================================
 
 # ssh connection & run script on remote rep
-function Connect_Soft {
-  Commands_Soft='sh path_on_server/some-script.sh;'
-  ssh -AYv login@ip -p 0000 $Commands_Soft
-}
+# function Connect_Soft {
+#   Commands_Soft='sh path_on_server/some-script.sh;'
+#   ssh -AYv login@ip -p 0000 $Commands_Soft
+# }
 
 # ssh connection & git commands & run bash on server
-function Connect_Other {
-  Commands_Rarus='cd /path_on_server/; git reset --hard; git reset HEAD --hard; git clean -df; git checkout master; git fetch; git pull origin master; echo "task: task#"; read -r taskId; echo "task: $taskId"; git fetch origin "task#$taskId"; git pull -ff origin "task#$taskId"; composer install; ln -s /path_on_server/isdev.php isdev.php; git status; pwd; /bin/bash;'
-  ssh dulale@gw.rarus-crimea.ru -p 22160 $Commands_Rarus
-}
-
-
-# ==============================================================================
-# Aliases
-# ==============================================================================
-
-alias cls='printf "\033c"; clear;'
-alias ls='ls -AlhF --color=auto'
-alias cd..='cd ..'
-alias update='sudo apt-get update'
-alias nautilus='sudo nautilus'
-alias :q='exit'
-alias cx="chmod +x"
-
-# Connection aliases
-alias dsf=Connect_Soft
-alias drs=Connect_Other
-
+# function Connect_Other {
+#   Commands_Simple='cd /path_on_server/; git reset --hard; git reset HEAD --hard; git clean -df; git checkout master; git reset --hard origin/master; git fetch; git pull origin master; echo "task: task#"; read -r taskId; echo "task: $taskId"; git fetch origin "task#$taskId"; git pull -ff origin "task#$taskId"; composer install; ln -s /path_on_server/isdev.php isdev.php; git status; pwd; /bin/bash;'
+#   Commands_Simple='cd /path_on_server/; git reset --hard; git clean -df; git checkout master; git reset --hard origin/master; git clean -df; git fetch; git pull origin master; echo "task: task#"; read -r taskId; echo "task: $taskId"; git fetch origin "task#$taskId"; git pull -ff origin "task#$taskId";'
+#   ssh dulale@gw.rarus-crimea.ru -p 22160 $Commands_Rarus
+# }
 
 # ==============================================================================
 # Banner
