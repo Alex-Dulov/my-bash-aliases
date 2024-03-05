@@ -147,12 +147,12 @@ done
 #-----------------------------------------------------------
 
 list_files() {
-  echo "File list -->"
+  echo "File list -->"$1""
   #cd ~/script.sh
   ls;
 }
 
-list_files
+list_files "argument"
 
 
 #-----------------------------------------------------------
