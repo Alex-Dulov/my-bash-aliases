@@ -81,18 +81,25 @@ alias testmic='arecord -f cd -d 10 test-mic.wav; aplay test-mic.wav'
 alias gr='git reset --hard; git clean -df'
 alias grm='git reset --hard origin/master; git clean -df'
 alias gru='git reset --hard origin/master; git clean -df; git fetch; git pull origin master'
-alias 'git co'='git checkout'
-alias 'git i'='git init'
-alias 'git s'='git status'
-alias 'git l'='git log'
-alias 'git a'='git add'
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias got='git '
+alias get='git '
 
 # Other aliases
 alias :q='exit'
-alias cx="chmod +x"
+alias cx='chmod +x'
 
 # Plugin aliases
+# npm -g browser-sync install
 alias br='browser-sync start --server --files "php/*.php,css/*.css,js/*.js,html/*.html,*.*"'
+# npm -g sass install
 alias sa='sass .:. --style compressed --no-source-map'
 alias sam='sass .:. --style compressed'
 
@@ -150,7 +157,7 @@ stringsArr=(
 "     (_ )°     (  )   ╱              ╲                      !(  )              "
 "      (_)   O   (_)  ⟨ Happy hacking! ⟩                     : (_)              "
 "       |         .    ╲_________ ____╱             _        .  !               "
-"    _  :  _   _  :      _       ╲▏ _      []─,  _ (_)       _____              "
+"    _  :  _   _  :      _       ╲▏ _      []─,  _ (_)      ______              "
 "   (_)─' (_) (_)─'     (_) _      (_)         ╲(_)╱        │{;'}│╲             "
 "   ╱│╲╱   │╲ ╱│╲      ╱ │╲╱       ││╲          ╲│╱  O      │____│_▏    ^_^     "
 "   ╲│  []─│╱ ╲│╱     '─[]      []─'│╱_          │   |     ╤╧════╧╧╤  >(-.o)<   "
