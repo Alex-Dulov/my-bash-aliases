@@ -22,6 +22,10 @@ fi
 # Colorize the ls output
 alias ls='ls -AlhF --color=auto'
 alias sl="ls"
+alias la='ls -A'
+alias l='ls -CF'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 
 # Use a long listing format
 alias ll='ls -laF'
@@ -66,9 +70,9 @@ alias nowdate='date +"%d-%m-%Y"'
 alias pingy='ping ya.ru'
 
 # confirmation
-# alias mv='mv -i'
-# alias cp='cp -i'
-# alias ln='ln -i'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
 
 # clear screen
 alias c='printf "\033c"; clear'
@@ -83,14 +87,37 @@ alias grm='git reset --hard origin/master; git clean -df'
 alias gru='git reset --hard origin/master; git clean -df; git fetch; git pull origin master'
 alias gs='git status '
 alias ga='git add '
+alias gp='git add -p '
+alias gl="git log --pretty=format:'%h - %an, %ar: %s'"
 alias gb='git branch '
-alias gc='git commit'
+alias gbd='git branch -d '
+alias gc='git clone'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gco='git checkout '
+alias gm='git merge '
 alias gk='gitk --all&'
 alias gx='gitx --all'
+alias gpul='git pull origin '
+alias gpsh='git push origin '
 alias got='git '
 alias get='git '
+
+# Docker
+alias dc='docker-compose'
+alias dcf='docker-compose -f docker-compose.yml'
+alias dm='docker-machine'
+alias dmx='docker-machine ssh'
+alias dk='docker'
+alias dki='docker images'
+alias dks='docker service'
+alias dkrm='docker rm'
+alias dkl='docker logs'
+alias dklf='docker logs -f'
+alias dkflush='docker rm `docker ps --no-trunc -aq`'
+alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+alias dkt='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"'
+alias dkps='docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}''
 
 # Other aliases
 alias :q='exit'
@@ -114,6 +141,18 @@ alias sam='sass .:. --style compressed'
 # alias drs=Connect_Other
 # alias cnf='ssh -AYv <login>@<server> -p <port>'
 
+
+# ==============================================================================
+# Variables
+# ==============================================================================
+
+color_red='\033[0;31m'
+color_yellow='\033[0;33m'
+color_green='\033[0;32m'
+color_ochre='\033[38;5;95m'
+color_blue='\033[0;34m'
+color_white='\033[0;37m'
+color_reset='\033[0m'
 
 # ==============================================================================
 # Functions
