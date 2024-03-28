@@ -5,6 +5,7 @@ sudo dpkg --list 'linux-image*'
 apt-get purge $(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | head -n -1)
 
 # autoremove
+apt-get clean
 apt-get autoremove
 apt-get autoclean
 apt-get autoremove
