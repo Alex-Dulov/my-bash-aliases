@@ -117,7 +117,7 @@ alias dklf='docker logs -f'
 alias dkflush='docker rm `docker ps --no-trunc -aq`'
 alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias dkt='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"'
-alias dkps='docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}''
+# alias dkps='docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}''
 
 # Other aliases
 alias :q='exit'
